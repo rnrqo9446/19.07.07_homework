@@ -1,0 +1,17 @@
+{% extends "Sogammun/base.html" %}
+
+{% block content %}
+    
+    <h1>전국배의 Sogammun 홈페이지입니다</h1>
+
+    <br>
+    {% for post in posts.all %}
+        <div>
+            <a href = "{% url 'detail' post.id %}">{{ post.title | truncatechars_html:6 }}</a>
+            <p>{{post.text | truncatechars_html:6}}</p>
+        </div>
+    {% endfor %}
+    
+    <a href = "{% url 'new' %}" id = button4 class="btn btn-primary btn-lg btn-block">NEW WRITE</a>
+
+{% endblock %}
